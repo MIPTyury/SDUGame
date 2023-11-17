@@ -11,8 +11,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 5;
 
 
-    [Header("Animation settings")]
-    public Animator animator;
+    //[Header("Animation settings")]
+    //public Animator animator;
     
     private bool facingRight = true;
     
@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate() {
         Run();
 
-        animator.SetFloat("IsMoving", Math.Abs(HorizontalSpeed) + Math.Abs(VerticalSpeed));
+        //animator.SetFloat("IsMoving", Math.Abs(HorizontalSpeed) + Math.Abs(VerticalSpeed));
     }
 
     private void Run()
@@ -43,10 +43,10 @@ public class PlayerMovement : MonoBehaviour
         Vector2 TargetVelocity = new Vector2(HorizontalSpeed, VerticalSpeed);
         rb.velocity = TargetVelocity.normalized * speed;
 
-        if (rb.velocity.x < 0 && facingRight)
+        /*if (rb.velocity.x < 0 && facingRight)
             Flip();
         if (rb.velocity.x > 0 && !facingRight)
-            Flip();
+            Flip();*/
     }
 
     private void SetZeroPos()

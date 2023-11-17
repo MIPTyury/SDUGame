@@ -28,10 +28,10 @@ public class Entity : MonoBehaviour
 
     public void TrueFlip(Rigidbody2D rb)
     {
-        if (rb.velocity.x < 0 && facingRight)
+        /*if (rb.velocity.x < 0 && facingRight)
             Flip();
         if (rb.velocity.x > 0 && !facingRight)
-            Flip();
+            Flip();*/
     }
 
     public int GetEntityMaxHealth()

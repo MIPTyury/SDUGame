@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Entity))]
 public class Health : MonoBehaviour
 {
-    [SerializeField] [Range(0, 100)] private int _currHealth = 0;
+    [SerializeField] private int _currHealth = 0;
     [SerializeField] [Range(0, 100)] private int _maxHealth = 0;
 
     private Entity _entity;

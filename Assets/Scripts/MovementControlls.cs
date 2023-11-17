@@ -9,13 +9,13 @@ public class MovementControlls : MonoBehaviour
     private float HorizontalSpeed = 0;
     private float VerticalSpeed = 0;
     [SerializeField] private float speed = 5;
-    private Animator animator;
+    //private Animator animator;
 
     private Entity entity;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
         entity = GetComponent<Entity>();
     }
 
@@ -36,6 +36,6 @@ public class MovementControlls : MonoBehaviour
             entity.TrueFlip(rb);
         }
 
-        animator.SetFloat("IsMoving", Math.Abs(HorizontalSpeed) + Math.Abs(VerticalSpeed));
+        //animator.SetFloat("IsMoving", Math.Abs(HorizontalSpeed) + Math.Abs(VerticalSpeed));
     }
 }
