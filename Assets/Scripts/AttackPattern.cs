@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Mathematics;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 
 public class AttackPattern : MonoBehaviour
@@ -9,10 +11,9 @@ public class AttackPattern : MonoBehaviour
     [SerializeField] private Transform ShootingPos;
     [SerializeField] private GameObject Projectile;
     [SerializeField] private Transform player;
-    
-
+    Vector3 rot = new Vector3(0, 0, 90);
     void Awake()
-    {
+    { 
         if (!player)
             player = FindObjectOfType<MovementControlls>().transform;
     }
@@ -22,7 +23,9 @@ public class AttackPattern : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space)) 
         {
-            Instantiate(Projectile, ShootingPos.position, player.rotation);
+            var rotate = player.rotation;
+            rotate.eulerAngles += rot;
+            Instantiate(Projectile, ShootingPos.position, rotate);
         }
     }
 }
