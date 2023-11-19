@@ -34,7 +34,7 @@ namespace DefaultNamespace
 
             float angle = Mathf.Atan2(worldPosition.y, worldPosition.x) * Mathf.Rad2Deg;
 
-            Vector3 rot = new Vector3(0, 0, angle);
+            Vector3 rot = new Vector3(0, 0, angle - 90);
 
             Quaternion currRotation = new Quaternion();
             currRotation.eulerAngles = rot;
