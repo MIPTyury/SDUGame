@@ -16,7 +16,8 @@ public class OutOfFrameRestrictment : MonoBehaviour
 
     private void BoundariesCheck()
     {
-        
+        Vector2 pos = player.transform.position;
+
     }
     
     private static float LowerBound(Camera parent)

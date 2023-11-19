@@ -18,7 +18,7 @@ public class CameraTracking : MonoBehaviour
     void Update()
     {
         pos = player.position;
-        pos.z = -20;
-        transform.position = Vector3.Lerp(transform.position, pos, Time.deltaTime);
+        pos.z = -10;
+        transform.position = pos;
     }
 }
