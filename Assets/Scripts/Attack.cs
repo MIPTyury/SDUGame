@@ -12,8 +12,10 @@ namespace DefaultNamespace
 
         private void Awake()
         {
+            
+            
             if (!player)
-                player = FindObjectOfType<MovementControlls>().transform;
+                player = FindObjectOfType<PlayerMovement>().transform;
         }
 
         private void Update()
@@ -27,11 +29,17 @@ namespace DefaultNamespace
 
         private void RotationFollowingMouse()
         {
-            Vector2 mousePos = Input.mousePosition;
+            Vector2 screenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
 
-            float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+            float angle = Mathf.Atan2(worldPosition.y, worldPosition.x) * Mathf.Rad2Deg;
 
-            player.rotation.Set(0, 0, -angle, 0);
+            Vector3 rot = new Vector3(0, 0, angle);
+
+            Quaternion currRotation = new Quaternion();
+            currRotation.eulerAngles = rot;
+            
+            player.rotation = currRotation;
         }
     }
 }
