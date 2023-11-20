@@ -6,8 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(Entity))]
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int _currHealth = 0;
-    [SerializeField] [Range(0, 100)] private int _maxHealth = 0;
+    [SerializeField] private float _currHealth = 0;
+    [SerializeField] [Range(0, 100)] private float _maxHealth = 0;
 
     private Entity _entity;
 
@@ -22,17 +22,17 @@ public class Health : MonoBehaviour
         _maxHealth = _entityMaxHealth;
     }
 
-    public int GetCurrHealth()
+    public float GetCurrHealth()
     {
         return _currHealth;
     }
 
-    public int GetMaxHealth()
+    public float GetMaxHealth()
     {
         return _maxHealth;
     }
 
-    public void GetDamage(int damage)
+    public void GetDamage(float damage)
     {
         if (GetCurrHealth() - damage < 0)
             return;
@@ -40,12 +40,12 @@ public class Health : MonoBehaviour
         SetCurrHealth(GetCurrHealth() - damage);
     }
 
-    private void SetCurrHealth(int currHealth)
+    private void SetCurrHealth(float currHealth)
     {
         _currHealth = currHealth;
     }
     
-    private void SetMaxHealth(int maxHealth)
+    private void SetMaxHealth(float maxHealth)
     {
         _maxHealth = maxHealth;
     }
